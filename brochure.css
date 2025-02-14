@@ -4,17 +4,18 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    overflow: hidden;
     display: flex;
     justify-content: center; 
     align-items: center; 
     min-height: 100vh;
     padding: 20px;
-    overflow: hidden;
+    
 }
 
 .main-image {
-    height: 95vh;
-    width: 97vw;
+    height: 100vh;
+    width: 100vw;
     overflow: hidden;
     position: relative;
     bottom: 10px;
