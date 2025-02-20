@@ -4,125 +4,125 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    overflow: hidden;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center; 
     align-items: center; 
     min-height: 100vh;
     
 }
-
+/*Image de fond*/
 .main-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100vh;
-    width: 100vw;
+    z-index: -1;
     overflow: hidden;
-    position: relative;
+
 }
 .main-image img {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
  
 /* Carte de visite*/
 .business-card {
     display: flex;
-    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
     background-color: rgba(245, 245, 220, 0.4);
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    border-radius: 10px;
     max-width: 800px;
+    width: 90%;
     margin: 20px auto;
-    width: 100%;
-    gap: 23px;
-    position: absolute;
-    top: 100px;
-    left: 250px;
+    transition: transform 0,3s ease-in-out, box-shadow 0,3s ease-in-out;
+   
 }
 .business-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   
 }
     
-/* Colonne de gauche (image)*/
+/* Colonne de gauche (image de profil)*/
 .left {
     display: flex;
-    flex: 1;
-    margin-right: 20px;
     justify-content: center;
     align-items: center;
-    width: 350px;
-    height: 250px;
-    overflow: hidden;
-    border-radius: 100px;
+    width: 180px;
+    height: 180px;
+    border-radius: 30%;
     background-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 8px rgba(32, 44, 31, 0.911);
-    position: relative;
-    top: 110px;
-    left: 10px;
+    overflow: hidden;
+    
 }
 .left:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(32, 44, 31, 0.911);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
 .left img {
-    position: relative;
-    right: 10px;
-    width: 115%;
-    height: 110%;
-    object-fit: cover; 
-    border-radius: 10px; 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 
 }
 
-/* Colonne de droite (informations)*/
+/*informations*/
 .right {
+    text-align: center;
+    margin-top: 20px;
     flex: 2;
 }
 
-/* Titres*/ 
 h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
     color: #333;
+    
 }
 
 h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 1.4rem;
     color: #555;
+    
 }
 
 /* Description*/ 
-p.description {
+p.description, .description1{
     font-size: 1rem;
     line-height: 1.6;
     color: #666;
     margin-bottom: 20px;
 }
 
-.description1 {
-    margin-top: 170px;
-    color: #666;
-}
-
 /* Coordonnées*/ 
 .coord {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    
 }
 
 .coord-elt {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    gap: 30px;
+    
 }
 
 .coord-elt img {
     width: 20px;
     height: 20px;
-    margin-right: 10px;
+    
 }
 
 .coord-elt p {
@@ -140,17 +140,63 @@ p.description {
     text-decoration: underline;
 }
 
+/*Liens sociaux*/
 .info {
     display: flex;
-    gap: 25px;
+    gap: 30px;
     margin-top: 40px;
+    
+}
+.info img {
     width: 25px;
     height: 25px;
+   
+}
+.codeQR {
+   margin-top: -30px;
+}
+.codeQR img {
+    width: 80px;
+    height: 50px;
 }
 
-.codeQR {
-    position: absolute;
-    top: 353px;
-    margin-left: 220px;
-    width: 20px;
+/* Responsiveness */
+@media (min-width: 768px) {
+    .business-card {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        padding: 30px;
+    }
+
+    .left {
+        width: 180px;
+        height: 180px;
+    }
+
+    .right {
+        text-align: left;
+    }
+
+    .coord {
+        align-items: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    .business-card {
+        max-width: 900px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    p.description, .description1 {
+        font-size: 1.1rem;
+    }
 }
